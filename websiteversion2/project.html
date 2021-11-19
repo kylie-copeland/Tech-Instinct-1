@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en-au" style="background: #ffffff;">    
+<style>
+    @media screen and (max-width: 500px) {
+        .header a {
+            float: none; display: block; text-align: left;
+        }
+        
+        .header-right {
+            float: none;
+        }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+body {
+ font-family: 'Quicksand', sans-serif;
+ font-weight: 300;
+}
+
+h1, h2, h3, h4, h5, h6 {
+ font-weight: 500;
+}
+</style>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Instinct</title>
+    <link rel="icon" href="assets/img/iconG.png">
+    <meta property="og:type" content="website">
+    <meta property="team" content="team">
+    <meta property="" content="">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alex+Brush&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cedarville+Cursive&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Homemade+Apple&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=La+Belle+Aurore&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Reenie+Beanie&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rock+Salt&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
+    <link rel="stylesheet" href="assets/css/Animated-Typing-With-Blinking.css">
+    <link rel="stylesheet" href="assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="assets/css/Article-Dual-Column.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css">
+    <link rel="stylesheet" href="assets/css/Highlight-Phone.css">
+    <link rel="stylesheet" href="assets/css/Team-Boxed.css">
+    <link rel="stylesheet" href="assets/css/Team-Clean.css">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:600|Roboto:400,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
+    <link href="css/paper-kit.min.css?ver=1.1.0" rel="stylesheet">
+    <link href="css/main.css?ver=1.1.0" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
+    <nav class="navbar navbar-light navbar-expand-md fixed-top" id="mainNav" style="padding: 12px 0px;">
+        <div class="container"><a class="navbar-brand" href="HOME.html" style="height: 45px;">Tech Instinct</a><button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive" style="font-size: 14px;">
+                <ul class="navbar-nav ms-auto">
+		    <li class="nav-item"><a class="nav-link" href="HOME.html">Home</a></li>		    
+		    <li class="nav-item"><a class="nav-link" href="HOME.html#tools">Tools</a></li>
+		    <li class="nav-item"><a class="nav-link" href="project.html">Project</a></li>		                     
+		    <li class="nav-item"><a class="nav-link" href="skills_jobs.html">Skills & Jobs</a></li>
+    		    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+       		    <li class="nav-item"><a class="nav-link" href="HOME.html#reflection">Reflection</a></li>
+ 		    <li class="nav-item"><a class="btn btn-outline-neutral btn-round" href="#download">Download PDF</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="masthead" style="background: url(&quot;assets/img/bg_2.png&quot;) no-repeat;background-size: cover;padding: 2px;">
+        <div class="intro-body">
+            <div class="container" style="padding: 1px;margin: 0px;height: 200px;width: 1321px;">
+                <div class="row d-xxl-flex justify-content-center align-content-center align-self-center m-auto" style="text-align: center;margin: 0px;">
+                    <div class="col-lg-8 col-xxl-10 offset-xxl-6 mx-auto" style="padding: 91px;margin: -1px;height: 397px;width: 914.656px;">
+                        <!-- Start: Animated Typing With Blinking -->
+                        <div class="text-nowrap d-flex justify-content-center align-items-center animated-text noSelect" style="background: rgba(255,255,255,0);border-style: none;margin-top: auto;width: 50%;margin-right: auto;margin-left: auto;text-align: center;">
+                            <!-- Start: Animated Type Heading -->
+				<div class="caption v-middle text-center">
+   				<h1 class="cd-headline clip">
+        <span class="blc">  </span>
+        <span class="cd-words-wrapper">
+        <b class="is-visible">Tech Instinct...</b>
+        </span>
+        <span class="blinking">|</span>
+   		</h1>
+		</div><!-- End: Animated Type Heading -->
+                        </div><!-- End: Animated Typing With Blinking -->
+			<a class="btn btn-link btn-circle" role="button" href="#about" style="margin: 47px 0px 0px;padding: 4px 12px;font-size: 38px;"><i class="fa fa-angle-double-down animated"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+            <!-- Start: #project -->
+    <section id="project" class="highlight-phone">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8" style="height: 497.547px;">
+                    <!-- Start: Intro -->
+                    <div class="intro">
+                        <h2 style="font-size: 41.128px;">WreckWatch™</h2>
+                        <a class="btn btn-primary" role="button" href="#PROJECT_IDEA">Learn More</a>
+                    </div><!-- End: Intro -->
+                </div>
+                <div class="col-sm-4">
+                    <!-- Start: Smartphone -->
+                    <div class="d-none d-md-block phone-mockup"><img class="device" src="assets/img/phone.svg">
+                        <div class="screen"></div>
+                    </div><!-- End: Smartphone -->
+                </div>
+            </div><!-- Start: Project Article... -->
+            <section class="article-clean">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2" id="PROJECT_IDEA">
+                            <!-- Start: Intro -->
+                            <div class="intro">
+                                <h1 class="text-center" style="font-size: 45px;">Project Idea</h1><!-- Start: Date and Author -->
+                                <p class="text-center" style="font-size: 16px;"><span class="by"></span><span class="date">Nov 18th, 2021</span></p><!-- End: Date and Author -->
+                            </div><!-- End: Intro -->
+                           
+			    <!-- Start: Text -->
+                            <div class="text">
+                                <p style="text-align: left;font-size: 18px;">&nbsp; &nbsp; &nbsp;The number of vehicles has been increasing throughout the world and with this, sadly, so has the number of accidents (both fatal and non-fatal) involving vehicles.<a href="#ref1"><sup>1</sup></a> This number of vehicle-related accidents can be safely said to be on the incline as per a report presented by the CDC. This reports key finding was that the number of traffic deaths has increased to 11.1 people per 100 000 people (from 2010-2019). There have also been cases where the family of the victim(s) and/or the emergency response team have not had the correct information in time, leading to preventable deaths/injuries and heart-broken family members. To decrease the average number of traffic related deaths throughout the world our project idea is to make use of smartphones. By allowing the smartphone to detect dangerous situations involving vehicles, such as traffic accidents, theft, fires etc, and sending correct relevant information to the appropriate authorities we hope to make the roads much safer than they are now.</p>
+				<h2 style="font-size: 25px;">Motivation</h2>
+                                <p style="font-size: 18px;text-align: left;">&nbsp; &nbsp; &nbsp;The motivation behind this product idea is to minimize the casualty/injury rate of vehicle related accidents and to properly allow emergency responders to save people from said accidents more affectively. The way this idea works is by making use of android phones with a computerized framework which is used to identify vehicle-related accidents and alert the relevant authorities. The reason for why this framework will help minimize serious consequences of an accident is by decreasing the time between the accident occurring and the emergency responders finding out about it and gathering the relevant information. This is because the framework can immediately after being activated send the current location of the accident to the authorities withing the closest vicinity of the accident site, thus decreasing response time exponentially. By doing this emergency responders can help the victim(s) quicker and in turn, save more people.</p>
+                                <h2 style="font-size: 25px;">Description</h2>
+                                <p style="font-size: 18px;text-align: left;">&nbsp; &nbsp; &nbsp;We will create a framework that utilizes Android smartphones and the OBD-II in vehicles. When this framework recognizes that the user has been involved in an accident it will alert client specific contacts via SMS. This SMS will contain relevant information, such as accident location, allowing for the appropriate personal people to be quickly notified and able to act accordingly. Along with the SMS, the framework will also make a call to the nearest emergency response authorities. However, for this framework to work the standard that Europe and the US has for their OBD-II needs to be met.<br><br>
+   &nbsp; &nbsp; &nbsp;We could also create a framework that utilizes the accelerometer, GPS, and amplifier to detect accidents or connect a cable between the airbags system and telematics system to allow the Android phone to detect if the airbags have been deployed. However, with these methods the process after would be the same. After confirming that there has been an accident the framework would then notify a net server and send a SMS to the users preferred emergency contact(s), this also means that emergency response agencies need to have access to said webserver.<br><br>
+   &nbsp; &nbsp; &nbsp;The current framework emergency response agencies have access to now utilizes the same sensors and equipment we would; however, one of the biggest drawbacks to their current framework is that they need to check the web server for accident notices, it is not automatic. In other words, there is no framework for personal responders which tracks a victim's location.<br><br>
+   &nbsp; &nbsp; &nbsp;We would make use of a framework called WreckWatch which includes information from the accelerometer and acoustic information to from the receiver to identify an accident. The framework will, as previously stated, alert the relevant authorities, and can also send a voice message to the emergency responders closest to the accident site. However, this framework has a high chance of sending a false positive, which would be incredibly counterproductive for what we are trying to achieve. A false positive could be triggered by a framework error, dropping of the smartphone etc. To counteract this, we looked at pre-existing frameworks and will base our framework on these different ones to minimize the risk of a false positive emergency call as much as physically possible.<br><br>
+   &nbsp; &nbsp; &nbsp;Smartphones are getting more technologically advanced every day, and the amount of smartphone users increases along with it. Because of this, we will centre this framework around smartphones to identify accidents and alert the relevant authorities. Smartphones also have the bonus of being most popular among teenagers and young adults, which coincidentally also happen to be the age groups most likely to be involved in a vehicle related accident. Therefore, by leveraging that smartphone are already integrated in the age group with the highest risk factor, we would minimize the hassle of having to allow for a large adjustment period among users of this framework.<br><br>
+   &nbsp; &nbsp; &nbsp;As previously stated, smartphone technology has gotten astronomically better since their original release, meaning that it is far easier and more effective to leverage this technology to both identify accidents and automatically call for help. As an example, with even an older model smartphone, the iPhone 4; this phone incorporates a GPS framework which allows it to know the exact location of itself if it has a connection, an accelerometer, a microphone etc. However, now the technology in smartphones far surpasses that of the iPhone 4 with sensory information, meaning that it will be a lot more efficient for us to make use of this to identify an accident, alert authorities and further minimize the chance of getting a false positive. WIFI and the general reception area has gotten overall better and continues to get better, meaning that, even in remote areas, users can make use of this framework to get the help required in the event of an accident.<br></p>
+				<h2 style="font-size: 25px;">Tools and Technologies</h2>
+
+
+    <p style="font-size: 18px;text-align: left;"> <br>The key technology of this project is Arduino. This IOT gadget acts as a bridge to operate and connect every key component together. Familiarity with developing Arduino and electrical safety are strictly required.<br><br>
+Environment data including the vehicle’s motion, speed and location, these data can be collected by using accelerometer and GPS module.<br><br>
+GY-251 module has a built-in MPU-6050 which is use for measuring velocity, orientation and gravitational forces.<br><br>
+GPS module: NEO-6M<br><br></p>
+                               
+				<h2 style="font-size: 25px;">Physical and Hardware Components</h2>
+<p style="font-size: 18px;text-align: left;">Arduino<br><br> 
+
+Accelerometer and Gyroscope Sensor: GY-251<br><br>
+
+GPS module: NEO-6M <br><br>
+
+Smart phones, running on Android and IOS operating systems.<br><br>
+
+ 
+
+[ Why choose AWS? 
+
+Relational database services (RDS) 
+
+Simple Storage Services (S3) 
+
+Elastic Beanstalk 
+
+Lambda 
+
+API Gateway 
+
+Simple Notification Service (SNS), Simple Email Service (SES) ]</p>
+
+<h2 style="font-size: 25px;">Testing</h2>
+    <p style="font-size: 18px;text-align: left;">>&nbsp; &nbsp; &nbsp;At Wreckwatch our goals are to make a technology that helps provide emergency services and people a more direct way to inform the required services needed to help in a very distressing situation, this cannot be done without testing our product to ensure this can be delivered. One question that needs to be answered or tested by WreckWatch is which part of the globe this product will be most effective in. By using statistics on car accidents and where most injuries and deaths occur in the world would provide a good indicator of where WreckWatch would be most suitable to implement the product and where it would have the greatest impact to help emergency services and in effect help save lives that may be in danger from these accidents. Social media would be used to take in surveys from users to see if this is a product that the public would use and this could be also be useful to find out the best areas of people would be most interested in using the product. The most crucial part of this product working is to figure out if using an OBDII sensor with an application or IoS device in a crash scenario will be effective at relaying the response via SMS to emergency services. This can be done by setting up a standard crash test scenario with dummies and the use of the WreckWatch system installed into the vehicle to make sure that everything works accordingly without any bugs as to not have false positives and being counterproductive in what WreckWatch is trying to achieve.</p>
+
+                                </div><!-- End: Text -->
+                        </div>
+                    </div>
+                </div>
+            </section><!-- End: Project Article... -->
+        </div>
+    </section><!-- End: #project -->
+
+
+
+
+<section id="team" div class="container">
+  <hr/>
+</div>
+<div class="aa-testimonials-section section">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="title mt-0">MEET THE TEAM</h2>
+      <p>Tech Instinct is committed to working as a team towards a common goal. <br>Our highly professional team is comprised of six Information Technology students with extensive experience in a range of industries and technology applications.</p>
+    </div>
+    <div class="aa-testimonials">
+      <div class="row">
+        
+
+	<div class="col-md-4 mb-3">
+          <div class="aa-testimonials-body" id="ABDUL-HALIM">
+            <p>"Hi. My name is Abdul-Halim, and I'll be turning 17 at the end of the year. I was born in Adelaide, South Australia, but by descent, I am half-Greek and half-Indonesian. I currently live in Western Australia, and am home-schooled. As far as past education goes, I haven't yet finished high-school, but through OUA, I have completed some undergraduate courses, namely, the fundamentals of; mathematics, physics, English, 3D modelling, and programming. In order to be eligible for a Bachelor of IT, I am currently taking an RMIT course called "Introduction to Information Technology" (...which is what this website happens to be an assignment for, but you already knew that).&nbsp;My hobbies include football (⚽) and basketball.&nbsp;I’ve been interested in technology, particularly the concept of programming, for a long time. Since I was around 7, I used to make games in PowerPoint. Later on (since around 11), I made games in Scratch, a block coding website. More recently (last few years) I learnt Python and made some things there. I also learnt some Java, and, quite recently indeed, I learnt the basics of HTML and CSS."</p>
+            <div class="row pt-3">
+              <div class="col-lg-5 col-md-12"><img class="img-fluid" src="assets/img/abdul.png" alt="Abdul-Halim"/></div>
+              <div class="col-lg-7 col-md-12 pt-3">
+                <div class="h5">Abdul-Halim Ramadhan Vlahos</div>
+                <p class="text-muted">CEO, Tech Instinct</p>
+<div class="social" style="font-size: 25px;"><a href="mailto:s3893744@student.rmit.edu.au" target="_blank"><i class="fa fa-envelope-o"></i></a><a href="https://youuttergit.github.io/Assignment01/" target="_blank"><i class="fa fa-github"></i></a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+	<!-- Start: Jarrod, Profile -->
+        <div class="col-md-4 mb-3">
+          <div id="JARROD" class="aa-testimonials-body">
+            <p>"My name is Jarrod Murphy, I'm 29 years old and am working currently as a level 3 teacher’s aide where I work with the technology and workshop faculty’s helping in fields of IT and workshop duties. I completed my certificate III in digital media and information technology this year and this is when I started my new job. My education in IT has stemmed from a lifelong interest in Computers and technology. I’ve started my studies in the field of IT because I think it’s an ever growing and important industry that won’t be going away in the future. I like to play poker, mountain bike, go to the gym, online game. I came to RMIT because I have a full-time job and the convenience of being able to study single subjects online was ideal for me to try and slowly but surely get through all the subjects to hopefully finish and get a degree so I can earn more money in the long run. I expect to get a well-rounded knowledge of all aspects of the subject and find a specific field in the industry that may interest me more than others to pursue. Skills I would like to learn more about in this course would be an extensive knowledge of HTML, CSS, Microsoft Windows, Business Analysis, Python, Git and the ability to technically support with a high understanding in a security sense."</p>
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Read More</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Jarrod Murphy</h2>
+    </div>
+    <div class="modal-body">
+      <p>Jarrod...Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+    <div class="modal-footer">
+      <h3>CEO, Tech Instinct</h3>
+    </div>
+  </div>
+</div>
+            <div class="row pt-3">
+              <div class="col-lg-5 col-md-12"><img class="img-fluid" src="assets/img/Jarrod.jpg" alt="Jarrod"/></div>
+              <div class="col-lg-7 col-md-12 pt-3">
+                <div class="h5">Jarrod Murphy</div>
+                <p class="text-muted">Director, Tech Instinct</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="aa-testimonials-body">
+            <p>My name is John Norberg, and I am a 21-year-old student currently living in Sweden but am trying to move back to Australia where my mum currently lives. The reason for me living in Sweden is because I hold dual citizenship (Swedish and Australian) and have moved several times between the two countries. I have always loved playing video games and some of my earliest memories are from when I was playing Mario on my Gameboy in the early 2000s. However, my interest in IT really started at my university in Sweden where I studied robotics, however; the program was split into roughly equal parts programming and electronics. So, while through studying the program I realized my interest in programming and the software aspect of IT, I also realized my lack of talent and general interest in electronics, so I decided to drop out of the program and peruse programming in Australia. Most of my experience in IT also stems from the 2 years I spent studying robotics.</p>
+
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Read More</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>John Norberg</h2>
+    </div>
+    <div class="modal-body">
+      <p>John... Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+    <div class="modal-footer">
+      <h3>Writer, Tech Instinct</h3>
+    </div>
+  </div>
+</div>
+    
+	<div class="row pt-3">
+              <div class="col-lg-5 col-md-12"><img class="img-fluid" src="assets/img/John.jpg" alt="Face 3"/></div>
+              <div class="col-lg-7 col-md-12 pt-3">
+                <div class="h5">John Norberg</div>
+                <p class="text-muted">Writer, Tech Instinct</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="aa-testimonials">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="aa-testimonials-body">
+            <p>I’m Kylie Copeland. I’m an Online Administrator currently studying Information Technology at&nbsp;RMIT University.&nbsp;I have a certificate IV in Information Technology Networking&nbsp;and&nbsp;have just&nbsp;completed the course Introduction to Computer Systems at RMIT earlier this year.&nbsp;Besides working towards my academic goals and achievements, I love to crochet in my spare time.&nbsp;I’m fascinated by Moore’s law and the exponential growth of technology. I grew up in an exciting era for technology innovation and have obsessed with computers since childhood. I wanted to be a part of making exciting changes to the future using technology. Solving technical problems is an important aspect of computer science and is something I find incredibly satisfying. Computer Programming, Computer Systems Analysis and Software development are areas I have a particular interest in, and I am eager work towards a career in these IT sectors.&nbsp;</p>
+            <div class="row pt-3">
+              <div class="col-lg-5 col-md-12"><img class="img-fluid" src="assets/img/Kylie.jpeg" alt="Kylie"/></div>
+              <div class="col-lg-7 col-md-12 pt-3">
+                <div class="h5">Kylie Copeland</div>
+                <p class="text-muted">Website Design, Tech Instinct</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="aa-testimonials-body">
+            <p>My name is Maleeha Yasir, I’ve recently turned 17. I am a dual national Pakistani/Australian, located in Melbourne Roxburgh Park, currently living in Pakistan due to Covid-19. I completed my High School through UK British studies O/A levels on June 3rd 2021. Talking about my hobbies, I love reading and bullet journaling in my free time, one of my advanced professions is in watercolour painting; it is said to be one of the most difficult types of paintings but I find it really enjoyable as high skill is required. The reason&nbsp;i&nbsp;chose IT was because of my interest that had been built over the past years, speaking of which,&nbsp;<strong><em>information security analyst&nbsp;</em></strong>is my main cause of attraction in IT, seeing how IT has grown to be the main backend for almost everything. Though&nbsp;I&nbsp;don’t have any such experience in Information Technology I look forward on learning through RMIT.</p>
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Read More</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Maleeha Yasir Mian</h2>
+    </div>
+    <div class="modal-body">
+      <p>Jarrod...
+
+Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+    <div class="modal-footer">
+      <h3>CEO, Tech Instinct</h3>
+    </div>
+  </div>
+</div>
+            <div class="row pt-3">
+              <div class="col-lg-5 col-md-12"><img class="img-fluid" src="assets/img/Maleeha.png" alt="Face 2"/></div>
+              <div class="col-lg-7 col-md-12 pt-3">
+                <div class="h5">Maleeha Yasir Mian</div>
+                <p class="text-muted">CEO, Tech Instinct</p>
+              </div>
+            </div>
+          </div>
+        </div><!-- End: Footer Dark -->
+	  
+	  <!-- Start: Tung, Profile -->
+	  <div class="col-md-4 mb-3">
+          <div class="aa-testimonials-body">
+            <p>My name is Ngo Khanh Tung. The given name was used for registration, my full name is Ngô Khánh Tùng to be exact and the name ‘Ngô’ is my surname as a common Vietnamese naming culture. I am going to become a personal trainer and a software developer. I tend to keep a low profile and I normally stay quiet as I enjoy silence but not being too silent. I am 22 by the way. I decided and started learning IT 2 years ago. I have got my interest in computers long since I was a child. I was intrigued by how the games and the software are constructed, what made them so lively and unique, so distinct from the real world.</p>
+        
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Read More</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Ngo Khanh Tung</h2>
+    </div>
+    <div class="modal-body">
+      <p>Tung...Some text in the Modal Body</p>
+      <p>Some other text...</p>
+    </div>
+    <div class="modal-footer">
+      <h3>Executive, Tech Instinct</h3>
+    </div>
+  </div>
+</div><!-- End: Modal -->
+    
+	<div class="row pt-3">
+              <div class="col-lg-5 col-md-12"><img class="img-fluid" src="assets/img/TungImg.jpg" alt="Tung"/></div>
+              <div class="col-lg-7 col-md-12 pt-3">
+                <div class="h5">Ngo Khanh Tung</div>
+                <p class="text-muted">Engineer, Tech Instinct</p>
+              </div>
+            </div>
+          </div>
+        </div><!-- End: Tung, Profile -->
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+    <!-- Start: Footer Basic -->
+    <footer class="footer-basic">
+        <!-- Start: Footer Dark -->
+        <footer class="footer-dark">
+            <div class="container">
+                <div class="row">
+                    <!-- Start: Services -->
+                    <div class="col-sm-6 col-md-3 item" style="text-align: center;">
+                        <h3 style="text-align: left;">&nbsp; Legal</h3>
+                        <ul>
+                            <li style="text-align: left;"><a href="https://www.freeprivacypolicy.com/live/580cd2eb-167c-4b02-b221-415c64020345" target="_blank">Privacy Policy</a></li>
+                            <li style="text-align: left;"><a href="https://www.freeprivacypolicy.com/live/5d819ade-e70e-4794-825c-558a1682d003" target="_blank">Disclaimer</a></li>
+                            <li style="text-align: left;"><a href="Terms%20and%20Cond..html" target="_blank">Terms of Use</a></li>
+                        </ul>
+                    </div><!-- End: Services -->
+                    <!-- Start: About -->
+                    <div class="col-sm-6 col-md-3 item" style="text-align: left;">
+                        <h3 style="text-align: left;">&nbsp; About</h3>
+                        <ul>
+                            <li style="text-align: left;"><a href="#about">Company</a></li>
+                            <li style="text-align: left;"><a href="#team">Team</a></li>
+                            <li style="text-align: left;"><a href="#project">Tech Instinct™</a></li>
+                        </ul>
+                    </div><!-- End: About -->
+
+	<div class="col-md-4 col-sm-12"><a class="aa-windows" href="#">
+          <div class="card">
+            <div class="row pb-3">
+              <div class="col-lg-3 col-md-12 aa-download-icon"><i class="fa fa-file-pdf-o" style="font-size:70px" aria-hidden="true"></i></div>
+              <div class="col-lg-9 col-md-12 aa-download-icon-detail">
+                <div class="h4 pb-1">Download</div>
+                <p class="text-muted">Download PDF Version</p>
+              </div>
+            </div>
+          </div></a></div>
+
+                    <!-- Start: Footer Text -->
+                    <div class="col-md-6 item text">
+                        <h3>Tech Instinct</h3>
+                        <p>The official website of Tech Instinct™.</p>
+                    </div><!-- End: Footer Text -->
+                    
+		    <!-- Start: Social Icons -->
+                    <div class="col item social"><a href="#home"><i class="icon ion-ios-home"></i></a><a href="https://tech-instinct.github.io/Tech-Instinct/"><i class="fab fa-internet-explorer"></i></a><a href="https://github.com/Tech-Instinct/Tech-Instinct"><i class="icon ion-social-github"></i></a><a href="https://rmiteduau.sharepoint.com/sites/Group9250/Shared%20Documents/General/Assessment%20Task%202/TechInstinct.pdf" target="_blank"><i class="fa fa-file-pdf-o" target="_blank"></i></a></div><!-- End: Social Icons -->
+                </div>
+		<!-- Start: Copyright -->
+                <p class="copyright">Tech Instinct © 2021. All right reserved.</p><!-- End: Copyright -->
+            </div>
+        </footer><!-- End: Footer Dark -->
+    </footer>
+    <!-- End: Footer Basic -->
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/grayscale.js"></script>
+    <script src="assets/js/Animated-Typing-With-Blinking.js"></script>
+
+	<!-- Start: Modal, Script -->
+	<script>
+	// Get the modal
+	var modal = document.getElementById("myModal");
+
+	// Get the button that opens the modal
+	var btn = document.getElementById("myBtn");
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks the button, open the modal 
+	btn.onclick = function() {
+	  modal.style.display = "block";
+	}
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	  modal.style.display = "none";
+	}
+
+	// When the user clicks anywhere outside of the modal, close it
+	window.onclick = function(event) {
+	  if (event.target == modal) {
+	    modal.style.display = "none";
+	  }
+	}
+	</script>
+	<!-- End: Modal, Script -->
+
+</body>
+
+</html>
